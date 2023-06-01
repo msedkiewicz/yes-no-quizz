@@ -65,15 +65,15 @@ const op1 = document.getElementById('op1');
 const op2 = document.getElementById('op2');
 
 // Show selection for op1
-op1.addEventListener("click", function() {
-  this.style.backgroundColor = "lightgoldenrodyellow";
-  selected = this.value;
+op1.addEventListener("click", () => {
+  op1.style.backgroundColor = "lightgoldenrodyellow";
+  selected = op1.value;
 })
 
 // Show selection for op2
-op2.addEventListener("click", function() {
-  this.style.backgroundColor = "lightgoldenrodyellow";
-  selected = this.value;
+op2.addEventListener("click", () => {
+  op2.style.backgroundColor = "lightgoldenrodyellow";
+  selected = op2.value;
 })
 
   // Iterate
