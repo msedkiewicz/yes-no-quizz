@@ -51,13 +51,13 @@ const Questions = [{
 ]
 
 // Set start
-var start = true;
+let start = true;
 
 // Iterate
 function iterate(id) {
 
 // Getting the result display section
-var result = document.getElementsByClassName("result");
+const result = document.getElementsByClassName("result");
 result[0].innerText = "";
 
 // Getting the question
@@ -80,7 +80,7 @@ op2.innerText = Questions[id].a[1].text;
 op1.value = Questions[id].a[0].isCorrect;
 op2.value = Questions[id].a[1].isCorrect;
 
-var selected = "";
+let selected = "";
 
 // Show selection for op1
 op1.addEventListener("click", () => {
@@ -103,7 +103,7 @@ iterate("0");
 
 // Next button and method
 const next = document.getElementsByClassName('next')[0];
-var id = 0;
+let id = 0;
 
 next.addEventListener("click", () => {
 start = false;
