@@ -76,7 +76,7 @@ op2.addEventListener("click", () => {
   selected = op2.value;
 })
 
-  // Iterate
+// Iterate
 function iterate(id) {
   // Getting the result display section
   const result = document.getElementsByClassName("result");
@@ -98,8 +98,8 @@ if (start) {
 }
 
 // Next button and method
-const next = document.getElementsByClassName('next')[0];
-let id = 0;
+const next = document.getElementsByClassName("next")[0];
+let id = 1;
 
 let finish = false;
 
@@ -108,16 +108,23 @@ next.addEventListener("click", () => {
   if (selected === "true" && finish === false) {
     testResult = testResult + 1;
   }
-
-  if (id < 5) {
-    id++;
-    iterate(id);
-  } else if (id === 5) {
+  if (id == 5) {
     next.innerText = "Zakończ test";
-    finish = true;
   }
-  op1.style.backgroundColor = "lightskyblue";
-  op2.style.backgroundColor = "lightskyblue";
+  if (id == 6) {
+    finish = true;
+    const result = document.getElementsByClassName("result");
+    result[0].innerText = "Twój wynik testu to: " + testResult;
+  }
 
-  console.log('Bieżący wynik', testResult, 'Id', id);
-})
+  if (id < 6) {
+    iterate(id);
+    id++;
+  }
+
+  //   if (next.innerText === "Zakończ test") {
+  //     const result = document.getElementsByClassName("result");
+  //     result[0].innerText = "Twój wynik testu to: " + testResult;
+  //   }
+  console.log("Finalny wynik", testResult, "Id", id);
+});
