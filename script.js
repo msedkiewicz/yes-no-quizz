@@ -122,9 +122,8 @@ next.addEventListener("click", () => {
     id++;
   }
 
-  //   if (next.innerText === "Zakończ test") {
-  //     const result = document.getElementsByClassName("result");
-  //     result[0].innerText = "Twój wynik testu to: " + testResult;
-  //   }
+  op1.style.backgroundColor = "lightskyblue";
+  op2.style.backgroundColor = "lightskyblue";
+
   console.log("Finalny wynik", testResult, "Id", id);
 });
