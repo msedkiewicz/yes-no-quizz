@@ -112,10 +112,13 @@ next.addEventListener("click", () => {
   if (selected === "true" && finish === false) {
     testResult = testResult + 1;
   }
-
-  if (id == 6) {
+  if (id == 5) {
     next.innerText = "Zakończ test";
+  }
+  if (id == 6) {
     finish = true;
+    const result = document.getElementsByClassName("result");
+    result[0].innerText = "Twój wynik testu to: " + testResult;
   }
 
   if (id < 6) {
@@ -123,9 +126,9 @@ next.addEventListener("click", () => {
     id++;
   }
 
-  if (next.innerText === "Zakończ test") {
-    const result = document.getElementsByClassName("result");
-    result[0].innerText = "Twój wynik testu to: " + testResult;
-  }
+//   if (next.innerText === "Zakończ test") {
+//     const result = document.getElementsByClassName("result");
+//     result[0].innerText = "Twój wynik testu to: " + testResult;
+//   }
   console.log("Finalny wynik", testResult, "Id", id);
 });
