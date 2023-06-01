@@ -95,20 +95,6 @@ op2.addEventListener("click", () => {
     op2.style.backgroundColor = "lightgoldenrodyellow";
     selected = op2.value;
 })
-
-// Grabbing the evaluate button
-const evaluate = document.getElementsByClassName("evaluate");
-
-// Evaluate method
-evaluate[0].addEventListener("click", () => {
-    if (selected == "true") {
-        result[0].innerHTML = "True";
-        result[0].style.color = "green";
-    } else {
-        result[0].innerHTML = "False";
-        result[0].style.color = "red";
-    }
-})
 }
 
 if (start) {
