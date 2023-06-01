@@ -53,6 +53,11 @@ const Questions = [{
 // Set start
 let start = true;
 
+let selected = "";
+
+// Set test result variable
+let testResult = 0;
+
 // Iterate
 function iterate(id) {
 
@@ -80,8 +85,6 @@ op2.innerText = Questions[id].a[1].text;
 op1.value = Questions[id].a[0].isCorrect;
 op2.value = Questions[id].a[1].isCorrect;
 
-let selected = "";
-
 // Show selection for op1
 op1.addEventListener("click", () => {
     op1.style.backgroundColor = "lightgoldenrodyellow";
@@ -95,6 +98,7 @@ op2.addEventListener("click", () => {
     op2.style.backgroundColor = "lightgoldenrodyellow";
     selected = op2.value;
 })
+
 }
 
 if (start) {
@@ -105,14 +109,21 @@ iterate("0");
 const next = document.getElementsByClassName('next')[0];
 let id = 0;
 
+let finish = false;
+
 next.addEventListener("click", () => {
 start = false;
+if ((selected === "true") && (finish === false)) {
+        testResult = testResult + 1;
+}
 if (id < 5) {
     id++;
     iterate(id);
-    console.log(id);
-} else if (id = 5) {
-    console.log('koniec testu');
+}
+if (id === 5) {
+    next.innerText = "Zakończ test";
+    finish = true;
 }
 
+console.log('Finalny wynik', testResult, 'Id', id);
 })
