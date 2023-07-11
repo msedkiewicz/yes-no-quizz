@@ -202,8 +202,15 @@ const op2 = document.getElementById("op2");
 
 // Show selection for op1
 op1.addEventListener("click", () => {
-  op1.style.backgroundColor = "lightblue";
-  selected = op1.value;
+  if (op1.style.backgroundColor === "lightgrey") {
+    op1.style.backgroundColor = "lightblue";
+    selected = op1.value;
+    console.log("is selected!")
+  } else if (op1.style.backgroundColor !== "lightgrey") {
+    op1.style.backgroundColor = "lightgrey"
+    selected = "";
+    console.log("is NOT selected!")
+  };
 });
 
 // Show selection for op2
