@@ -194,11 +194,17 @@ let selected = "";
 // Set test result variable
 let testResult = 0;
 
+//Setting color in JS
+
 // Getting the question
 const question = document.getElementById("question");
 // Getting the options
 const op1 = document.getElementById("op1");
 const op2 = document.getElementById("op2");
+
+// Add starting color for button
+op1.style.backgroundColor = "lightgrey";
+op2.style.backgroundColor = "lightgrey";
 
 // Show selection for op1
 op1.addEventListener("click", () => {
@@ -208,15 +214,22 @@ op1.addEventListener("click", () => {
     console.log("is selected!")
   } else if (op1.style.backgroundColor !== "lightgrey") {
     op1.style.backgroundColor = "lightgrey"
-    selected = "";
+    selected = false;
     console.log("is NOT selected!")
   };
 });
 
 // Show selection for op2
 op2.addEventListener("click", () => {
-  op2.style.backgroundColor = "lightblue";
-  selected = op2.value;
+  if (op2.style.backgroundColor === "lightgrey") {
+    op2.style.backgroundColor = "lightblue";
+    selected = op2.value;
+    console.log("2is selected!")
+  } else if (op1.style.backgroundColor !== "lightgrey") {
+    op2.style.backgroundColor = "lightgrey"
+    selected = false;
+    console.log("2is NOT selected!")
+  };
 });
 
 // Iterate
@@ -248,6 +261,9 @@ let finish = false;
 
 next.addEventListener("click", () => {
   start = false;
+  if (op1.value === true || op2.value === true) {
+    console.log ("Yoloo")
+  }
   if (selected === "true" && finish === false) {
     testResult = testResult + 1;
   }
