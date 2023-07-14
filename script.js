@@ -210,26 +210,28 @@ op2.style.backgroundColor = "lightgrey";
 op1.addEventListener("click", () => {
   if (op1.style.backgroundColor === "lightgrey") {
     op1.style.backgroundColor = "lightblue";
+    op2.style.backgroundColor = "lightgrey";
     selected = op1.value;
-    console.log("is selected!")
+    console.log("1 is selected!");
   } else if (op1.style.backgroundColor !== "lightgrey") {
-    op1.style.backgroundColor = "lightgrey"
+    op1.style.backgroundColor = "lightgrey";
     selected = false;
-    console.log("is NOT selected!")
-  };
+    console.log("1 is NOT selected!");
+  }
 });
 
 // Show selection for op2
 op2.addEventListener("click", () => {
   if (op2.style.backgroundColor === "lightgrey") {
     op2.style.backgroundColor = "lightblue";
+    op1.style.backgroundColor = "lightgrey";
     selected = op2.value;
-    console.log("2is selected!")
-  } else if (op1.style.backgroundColor !== "lightgrey") {
-    op2.style.backgroundColor = "lightgrey"
+    console.log("2is selected!");
+  } else if (op2.style.backgroundColor !== "lightgrey") {
+    op2.style.backgroundColor = "lightgrey";
     selected = false;
-    console.log("2is NOT selected!")
-  };
+    console.log("2is NOT selected!");
+  }
 });
 
 // Iterate
@@ -262,7 +264,7 @@ let finish = false;
 next.addEventListener("click", () => {
   start = false;
   if (op1.value === true || op2.value === true) {
-    console.log ("Yoloo")
+    console.log("Yoloo");
   }
   if (selected === "true" && finish === false) {
     testResult = testResult + 1;
