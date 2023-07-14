@@ -208,11 +208,13 @@ op1.addEventListener("click", () => {
     op1.classList.remove("option-active");
     selected = false;
     enabled = false;
+    next.classList.remove("next-active");
   } else {
     op1.classList.add("option-active");
     op2.classList.remove("option-active");
     selected = op1.value;
     enabled = true;
+    next.classList.add("next-active");
   }
 });
 
@@ -222,11 +224,13 @@ op2.addEventListener("click", () => {
     op2.classList.remove("option-active");
     selected = false;
     enabled = false;
+    next.classList.remove("next-active");
   } else {
     op2.classList.add("option-active");
     op1.classList.remove("option-active");
     selected = op2.value;
     enabled = true;
+    next.classList.add("next-active");
   }
 });
 
@@ -279,5 +283,6 @@ next.addEventListener("click", () => {
     enabled = false;
     op1.classList.remove("option-active");
     op2.classList.remove("option-active");
+    next.classList.remove("next-active");
   }
 });
