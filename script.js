@@ -188,7 +188,7 @@ const Questions = [
 
 // Set start
 let start = true;
-
+let enabled = false;
 let selected = "";
 
 // Set test result variable
@@ -212,11 +212,11 @@ op1.addEventListener("click", () => {
     op1.style.backgroundColor = "lightblue";
     op2.style.backgroundColor = "lightgrey";
     selected = op1.value;
-    console.log("1 is selected!");
+    enabled = true;
   } else if (op1.style.backgroundColor !== "lightgrey") {
     op1.style.backgroundColor = "lightgrey";
     selected = false;
-    console.log("1 is NOT selected!");
+    enabled = false;
   }
 });
 
@@ -226,11 +226,11 @@ op2.addEventListener("click", () => {
     op2.style.backgroundColor = "lightblue";
     op1.style.backgroundColor = "lightgrey";
     selected = op2.value;
-    console.log("2is selected!");
+    enabled = true;
   } else if (op2.style.backgroundColor !== "lightgrey") {
     op2.style.backgroundColor = "lightgrey";
     selected = false;
-    console.log("2is NOT selected!");
+    enabled = false;
   }
 });
 
@@ -263,28 +263,26 @@ let finish = false;
 
 next.addEventListener("click", () => {
   start = false;
-  if (op1.value === true || op2.value === true) {
-    console.log("Yoloo");
-  }
-  if (selected === "true" && finish === false) {
-    testResult = testResult + 1;
-  }
-  if (id == 22) {
-    next.innerText = "Zakończ test";
-  }
-  if (id == 23) {
-    finish = true;
-    const result = document.getElementsByClassName("result");
-    result[0].innerText = "Twój wynik testu to: " + testResult;
-  }
+  if (enabled === true) {
+    if (selected === "true" && finish === false) {
+      testResult = testResult + 1;
+    }
+    if (id == 22) {
+      next.innerText = "Zakończ test";
+    }
+    if (id == 23) {
+      finish = true;
+      const result = document.getElementsByClassName("result");
+      result[0].innerText = "Twój wynik testu to: " + testResult;
+    }
 
-  if (id < 23) {
-    iterate(id);
-    id++;
+    if (id < 23) {
+      iterate(id);
+      id++;
+    }
+    enabled = false;
   }
-
   op1.style.backgroundColor = "lightgrey";
   op2.style.backgroundColor = "lightgrey";
 
-  // console.log("Finalny wynik", testResult, "Id", id);
 });
