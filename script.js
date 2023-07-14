@@ -202,35 +202,31 @@ const question = document.getElementById("question");
 const op1 = document.getElementById("op1");
 const op2 = document.getElementById("op2");
 
-// Add starting color for button
-op1.style.backgroundColor = "lightgrey";
-op2.style.backgroundColor = "lightgrey";
-
 // Show selection for op1
 op1.addEventListener("click", () => {
-  if (op1.style.backgroundColor === "lightgrey") {
-    op1.style.backgroundColor = "lightblue";
-    op2.style.backgroundColor = "lightgrey";
-    selected = op1.value;
-    enabled = true;
-  } else if (op1.style.backgroundColor !== "lightgrey") {
-    op1.style.backgroundColor = "lightgrey";
+  if (op1.classList.contains("option-active")) {
+    op1.classList.remove("option-active");
     selected = false;
     enabled = false;
+  } else {
+    op1.classList.add("option-active");
+    op2.classList.remove("option-active");
+    selected = op1.value;
+    enabled = true;
   }
 });
 
 // Show selection for op2
 op2.addEventListener("click", () => {
-  if (op2.style.backgroundColor === "lightgrey") {
-    op2.style.backgroundColor = "lightblue";
-    op1.style.backgroundColor = "lightgrey";
-    selected = op2.value;
-    enabled = true;
-  } else if (op2.style.backgroundColor !== "lightgrey") {
-    op2.style.backgroundColor = "lightgrey";
+  if (op2.classList.contains("option-active")) {
+    op2.classList.remove("option-active");
     selected = false;
     enabled = false;
+  } else {
+    op2.classList.add("option-active");
+    op1.classList.remove("option-active");
+    selected = op2.value;
+    enabled = true;
   }
 });
 
@@ -281,8 +277,7 @@ next.addEventListener("click", () => {
       id++;
     }
     enabled = false;
+    op1.classList.remove("option-active");
+    op2.classList.remove("option-active");
   }
-  op1.style.backgroundColor = "lightgrey";
-  op2.style.backgroundColor = "lightgrey";
-
 });
